@@ -2545,20 +2545,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 770346330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6e60a9780a3b7e42902a665d78f13df, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c69017bb40687d469e7a81a492dcb68, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FootPlacerNEO
-  TerrainLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  OtherFoot: {fileID: 1939723094}
-  StepDistance: 1
-  StepHeight: 1
-  StepLength: 1
-  FootSpacing: 1
-  Speed: 5
-  Body: {fileID: 1724081747}
-  FootOffset: {x: 0, y: 0, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::FootPlacer
+  FootSpacing: 0
+  body: {fileID: 1635471401}
 --- !u!4 &829425431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3321919801592875672, guid: 93b39fd04133347439c350af1b5f7687, type: 3}
@@ -5180,23 +5171,6 @@ MonoBehaviour:
   rigid: {fileID: 0}
   speed: 6
   PlayerCamera: {fileID: 0}
---- !u!111 &1724081751
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724081743}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 003211785b145e44281a6966ce44b060, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 003211785b145e44281a6966ce44b060, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1 &1736160892
 GameObject:
   m_ObjectHideFlags: 0
@@ -5935,10 +5909,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: character
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 93b39fd04133347439c350af1b5f7687, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -5970,9 +5940,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 93b39fd04133347439c350af1b5f7687, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1724081748}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 93b39fd04133347439c350af1b5f7687, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1724081751}
   m_SourcePrefab: {fileID: 100100000, guid: 93b39fd04133347439c350af1b5f7687, type: 3}
 --- !u!1 &1939723092
 GameObject:
@@ -6015,20 +5982,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1939723092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6e60a9780a3b7e42902a665d78f13df, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c69017bb40687d469e7a81a492dcb68, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FootPlacerNEO
-  TerrainLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  OtherFoot: {fileID: 770346332}
-  StepDistance: 1
-  StepHeight: 1
-  StepLength: 1
-  FootSpacing: 1
-  Speed: 5
-  Body: {fileID: 1724081747}
-  FootOffset: {x: 0, y: 0, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::FootPlacer
+  FootSpacing: 0
+  body: {fileID: 50596204}
 --- !u!4 &1946304869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7666680083751660616, guid: 7a7101d01f630e14298295a78952fc7a, type: 3}

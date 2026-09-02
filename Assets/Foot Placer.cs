@@ -13,7 +13,7 @@ public class FootPlacer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray ray = new Ray(body.position + (body.right * FootSpacing), Vector3.down);
+        Ray ray = new Ray(body.position + (body.up * FootSpacing), Vector3.down);
         if (Physics.Raycast(ray, out RaycastHit info, 10))
         {transform.position = info.point;}
     }

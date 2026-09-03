@@ -947,7 +947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &330585544
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1333,6 +1333,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
+--- !u!1 &380458774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380458776}
+  - component: {fileID: 380458775}
+  m_Layer: 0
+  m_Name: Rig 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &380458775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380458774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.Rig
+  m_Weight: 1
+  m_Effectors: []
+--- !u!4 &380458776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380458774}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 987559699}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &408244989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,11 +2598,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   OtherFoot: {fileID: 1939723094}
-  StepDistance: 1
-  StepHeight: 1
-  StepLength: 1
-  FootSpacing: 1
-  Speed: 5
+  StepDistance: 2
+  StepHeight: 2
+  StepLength: 2
+  FootSpacing: 2
+  Speed: 7
   Body: {fileID: 1724081747}
   FootOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &829425431 stripped
@@ -2825,9 +2871,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987559694}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d0b185b1b38f70843859750afe637516, type: 2}
+  m_Controller: {fileID: 9100000, guid: 014b1ba5a04154d47837e10cabf473bc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2936,9 +2982,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.RigBuilder
   m_RigLayers:
-  - m_Rig: {fileID: 1031495578}
+  - m_Rig: {fileID: 380458775}
     m_Active: 1
   m_Effectors: []
+--- !u!4 &987559699 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7a7101d01f630e14298295a78952fc7a, type: 3}
+  m_PrefabInstance: {fileID: 1166330830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1021574533 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1070350730909333850, guid: 7a7101d01f630e14298295a78952fc7a, type: 3}
@@ -3071,7 +3122,7 @@ GameObject:
   - component: {fileID: 1038053326}
   - component: {fileID: 1038053325}
   - component: {fileID: 1038053324}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3360,7 +3411,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7a7101d01f630e14298295a78952fc7a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 380458776}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a7101d01f630e14298295a78952fc7a, type: 3}
       insertIndex: -1
@@ -5180,23 +5234,6 @@ MonoBehaviour:
   rigid: {fileID: 0}
   speed: 6
   PlayerCamera: {fileID: 0}
---- !u!111 &1724081751
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724081743}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 003211785b145e44281a6966ce44b060, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 003211785b145e44281a6966ce44b060, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1 &1736160892
 GameObject:
   m_ObjectHideFlags: 0
@@ -5937,7 +5974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 93b39fd04133347439c350af1b5f7687, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5970,9 +6007,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 93b39fd04133347439c350af1b5f7687, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1724081748}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 93b39fd04133347439c350af1b5f7687, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1724081751}
   m_SourcePrefab: {fileID: 100100000, guid: 93b39fd04133347439c350af1b5f7687, type: 3}
 --- !u!1 &1939723092
 GameObject:
@@ -6022,11 +6056,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   OtherFoot: {fileID: 770346332}
-  StepDistance: 1
-  StepHeight: 1
-  StepLength: 1
-  FootSpacing: 1
-  Speed: 5
+  StepDistance: 2
+  StepHeight: 2
+  StepLength: 2
+  FootSpacing: 2
+  Speed: 7
   Body: {fileID: 1724081747}
   FootOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1946304869 stripped

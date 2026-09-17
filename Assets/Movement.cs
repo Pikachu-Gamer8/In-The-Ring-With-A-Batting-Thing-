@@ -1,8 +1,11 @@
 using JetBrains.Annotations;
 using UnityEngine;
+using System.Collections;
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] FootPlacerTripleNEO LeftLegPlacer;
+    [SerializeField] FootPlacerTripleNEO RightLegPlacer;
     public Rigidbody rigid;
     public float speed = 7f;
     public Transform PlayerCamera;
@@ -14,6 +17,30 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
+    IEnumerator LegUpdateCoroutine()
+    {
+        // Run continuously
+        while (true)
+        {
+            // Try moving one diagonal pair of legs
+            do
+            {
+                LeftLegPlacer.TryMove();
+                yield return null;
+
+            } while (LeftLegPlacer.Moving);
+
+            do
+            {
+                RightLegPlacer.TryMove();
+                yield return null;
+            } while (RightLegPlacer.Moving);
+        }
+    }
+    private void Awake()
+    {
+       StartCoroutine(LegUpdateCoroutine());
+    }
     void FixedUpdate()
     {
         float h = Input.GetAxisRaw("Horizontal");

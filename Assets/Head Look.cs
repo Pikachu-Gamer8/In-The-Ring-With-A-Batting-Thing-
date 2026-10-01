@@ -22,7 +22,7 @@ public class HeadLook : MonoBehaviour
         float AngleToTarget = Vector3.Angle(Head.data.constrainedObject.transform.forward,TargetHead);
         if (AngleToTarget > AngleLimit)
         {TargetWeight = 0f;}
-        else if (AngleToTarget > (AngleLimit - BufferAngle));
+        else if (AngleToTarget > (AngleLimit - BufferAngle))
         {float Smooth = (AngleToTarget - (AngleLimit - BufferAngle)) / BufferAngle;
         TargetWeight = 1f - Smooth;}
         Head.weight = Mathf.MoveTowards(Head.weight, TargetWeight, Time.deltaTime * 2f);

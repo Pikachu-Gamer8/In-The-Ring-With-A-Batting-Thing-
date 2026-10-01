@@ -14,6 +14,7 @@ public class FootPlacerTripleNEO : MonoBehaviour
         if ((K *= 2f) > 1f) return 0.5f * K * K * K;
         return 0.5f * ((K -= 2f) * K * K + 2f);
     }
+    public Rigidbody Rigid;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +31,22 @@ public class FootPlacerTripleNEO : MonoBehaviour
 
         Quaternion endRot = HomeTransform.rotation;
         Vector3 endPoint = HomeTransform.position;
+
+        /*new Vector3(HomeTransform.position.x, HomeTransform.position.y, HomeTransform.position.z);
+        Vector3*/
+
+        StartCoroutine(SphereSpawn());
+        IEnumerator SphereSpawn()
+        {
+            Vector3 Direction = Rigid.linearVelocity;
+            Vector3 EndPointDir = endPoint + (Direction / 2);
+            GameObject Sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            Sphere.GetComponent<SphereCollider>().enabled = false;
+            Sphere.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+            Sphere.transform.position = EndPointDir;
+            yield return new WaitForSeconds(0.5f);
+            Destroy(Sphere);
+        }
 
         float timeElapsed = 0;
         IEnumerator Move()

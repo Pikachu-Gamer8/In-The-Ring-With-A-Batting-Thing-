@@ -22,7 +22,6 @@ public class Movement : MonoBehaviour
         // Run continuously
         while (true)
         {
-            // Try moving one diagonal pair of legs
             do
             {
                 LeftLegPlacer.TryMove();

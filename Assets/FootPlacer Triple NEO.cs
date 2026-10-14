@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Net;
+using System.Reflection.PortableExecutable;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
@@ -17,6 +19,7 @@ public class FootPlacerTripleNEO : MonoBehaviour
     }
     public Rigidbody Rigid;
     public Material Material2, Material3, Material4;
+    public float Magic;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,12 +42,12 @@ public class FootPlacerTripleNEO : MonoBehaviour
         overshootVector = Vector3.ProjectOnPlane(overshootVector, Vector3.up);
 
         Vector3 Direction = Rigid.linearVelocity;
-        Vector3 EndPointDir = HomeTransform.position + (Direction / 2);
+        Vector3 EndPointDir = HomeTransform.position + (Direction / Magic);
         Vector3 endPoint = HomeTransform.position + overshootVector;
 
 
         Vector3 centerPoint = (startPoint + EndPointDir) / 2;
-        StartCoroutine(SphereSpawn(endPoint, startPoint, centerPoint));
+        //StartCoroutine(SphereSpawn(endPoint, startPoint, centerPoint));
         float timeElapsed = 0;
         do
         {
@@ -54,8 +57,8 @@ public class FootPlacerTripleNEO : MonoBehaviour
             normalizedTime = InOut(normalizedTime);
             transform.position =
             Vector3.Lerp(
-                Vector3.Lerp(startPoint, centerPoint, normalizedTime),
-                Vector3.Lerp(centerPoint, EndPointDir, normalizedTime),
+                startPoint, EndPointDir,
+                /*Vector3.Lerp(centerPoint, EndPointDir, normalizedTime),*/
                 normalizedTime
               );
 
@@ -68,7 +71,7 @@ public class FootPlacerTripleNEO : MonoBehaviour
         Moving = false;
     }
 
-    IEnumerator SphereSpawn(Vector3 endPoint, Vector3 startPoint, Vector3 centerPoint)
+    /*IEnumerator SphereSpawn(Vector3 endPoint, Vector3 startPoint, Vector3 centerPoint)
     {
         Debug.Log("spawn");
         Vector3 Direction = Rigid.linearVelocity;
@@ -102,10 +105,10 @@ public class FootPlacerTripleNEO : MonoBehaviour
         yield return new WaitForSeconds(1f);
         yield return new WaitForSeconds(0.5f);
 
-        /*Destroy(Sphere);
+        Destroy(Sphere);
         Destroy(Sphere2);
-        Destroy(Sphere3);*/
-    }
+        Destroy(Sphere3);
+    }*/
 
 
     IEnumerator MoveToHome()

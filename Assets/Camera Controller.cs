@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -15,11 +16,14 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
-        Xrotation -= mouseY;
-        Xrotation = Mathf.Clamp(Xrotation, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(Xrotation, 0f, 0f);
-        transform.parent.Rotate(Vector3.up * mouseX);
+        if (!Input.GetKey (KeyCode.E) && !Input.GetKey (KeyCode.Q))
+        {
+            float mouseX = Input.GetAxis("Mouse X") * sensitivity;
+            float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
+            Xrotation -= mouseY;
+            Xrotation = Mathf.Clamp(Xrotation, -90f, 90f);
+            transform.localRotation = Quaternion.Euler(Xrotation, 0f, 0f);
+            transform.parent.Rotate(Vector3.up * mouseX);
+        }
     }
 }

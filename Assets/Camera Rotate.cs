@@ -55,7 +55,7 @@ public class CameraRotate : MonoBehaviour
         StartValue = this.transform.rotation;
         RotateValue = 90f;
         RotateTransition = true;
-        Direction 
+        Direction = 1;
     }
 
     public void Collection()
@@ -63,6 +63,7 @@ public class CameraRotate : MonoBehaviour
         StartValue = this.transform.rotation;
         RotateValue = 180f;
         RotateTransition = true;
+        Direction = -1;
     }
 
     public void Back()
@@ -70,5 +71,13 @@ public class CameraRotate : MonoBehaviour
         StartValue = this.transform.rotation;
         RotateValue = 0f;
         RotateTransition = true;
+        if (Direction == -1)
+        {
+            Direction = 1;
+        }
+        else
+        {
+            Direction = -1;
+        }
     }
 }

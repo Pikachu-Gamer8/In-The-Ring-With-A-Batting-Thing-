@@ -5,31 +5,39 @@ public class CameraRotate : MonoBehaviour
 {
     public Quaternion StartValue;
     public bool RotateTransition;
-    public float Dampener, RotateValue, Speed, Direction;
+    public float Dampener, DampenerValue, RotateValue, Speed, Direction, TargetRotation, Progress;
     public float Euler;
+    public float time;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void FixedUpdate()
     {
         if (RotateTransition)
         {
+            time += Time.deltaTime;
             /*this.transform.rotation = Quaternion.Slerp(this.transform.rotation, RotateValue, Time.deltaTime/Dampener);
             if(this.transform.rotation == RotateValue)
             {
                 RotateTransition = false;
             }*/
-
+            if ((transform.localEulerAngles.y - StartValue.y / RotateValue) != 0f)
+            {
+                Progress = ((transform.localEulerAngles.y - StartValue.y / RotateValue));
+            }
+            Dampener = DampenerValue * Progress;
             transform.Rotate(Vector3.up * Speed * Time.deltaTime * Direction);
-            Speed += Time.deltaTime * 5f;
+            Speed -= Time.deltaTime;// * Dampener;
             Euler = transform.localEulerAngles.y;
             if(transform.localEulerAngles.y >= RotateValue && Direction == 1)
             {
                 RotateTransition = false;
-                Speed = 25f;
+                Speed = 50f;
+                transform.localEulerAngles = new Vector3(0, RotateValue, 0);
             }
             else if(transform.localEulerAngles.y <= RotateValue && Direction == -1)
             {
                 RotateTransition = false;
-                Speed = 25f;
+                Speed = 50f;
+                transform.localEulerAngles = new Vector3(0, RotateValue, 0);
             }
         }
     }

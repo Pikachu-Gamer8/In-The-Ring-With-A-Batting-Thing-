@@ -2774,11 +2774,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraRotate
   StartValue: {x: 0, y: 0, z: 0, w: 0}
   RotateTransition: 0
-  Dampener: 50
+  Dampener: 35
+  DampenerValue: 35
   RotateValue: 0
-  Speed: 25
+  Speed: 80
   Direction: 0
+  TargetRotation: 0
+  Progress: 0
   Euler: 0
+  time: 0
 --- !u!4 &946688442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2563496969622287784, guid: 93b39fd04133347439c350af1b5f7687, type: 3}
@@ -3028,7 +3032,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1018705873}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 911481264}
+        m_TargetAssemblyTypeName: CameraRotate, Assembly-CSharp
+        m_MethodName: Controls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1018705873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5476,7 +5492,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1890226347}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 911481264}
+        m_TargetAssemblyTypeName: CameraRotate, Assembly-CSharp
+        m_MethodName: Collection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1890226347
 MonoBehaviour:
   m_ObjectHideFlags: 0
